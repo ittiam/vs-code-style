@@ -1,0 +1,11 @@
+{
+  "name": "example-stylelint",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "license": "MIT",
+  "devDependencies": {
+    "@wpg/stylelint-config": "^2.0.8",
+    "stylelint": "^14.2.0"
+  }
+}

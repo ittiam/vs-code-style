@@ -1,0 +1,11 @@
+{
+  "name": "example-eslint",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "license": "MIT",
+  "dependencies": {
+    "@wpg/eslint-config-vue": "^2.1.5",
+    "eslint": "^8.16.0"
+  }
+}

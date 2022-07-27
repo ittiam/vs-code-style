@@ -1,0 +1,16 @@
+{
+  "name": "vs-code-style",
+  "private": true,
+  "scripts": {
+    "build": "slidev build",
+    "dev": "slidev --open",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@slidev/cli": "^0.34.3",
+    "@slidev/theme-default": "*",
+    "@slidev/theme-seriph": "*",
+    "slidev-theme-geist": "^0.8.1",
+    "slidev-theme-light-icons": "^1.0.2"
+  }
+}

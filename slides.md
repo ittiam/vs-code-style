@@ -328,7 +328,8 @@ handelDictionary(data) {
 - 1、单一职责提炼函数
 - 2、合并条件，避免条件语句
 - 3、避免类型检查
-- 4、组件拆分
+- 4、组件拆分 - 组件较大且有输入框
+- 5、基础组件 API 不熟悉，硬编码
 
 <layout-tag>
   <a href="https://guide.cowboybebop.space/docs/javascript/code.html" target="_blank">避免条件语句</a>

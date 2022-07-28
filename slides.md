@@ -3,15 +3,19 @@
 theme: light-icons
 # https://sli.dev/custom/highlighters.html
 highlighter: shiki
+layout: intro
+image: 'https://source.unsplash.com/collection/94734566/1920x1080'
 ---
 
-# 前端代码质量
+  <div class="mb-8 absolute bottom-4 left-12">
+    <span class="text-6xl text-primary-lighter text-opacity-80" style="font-weight:500;" >
+      代码规范和ESLint<light-icon icon="bike"/>
+    </span>
+    <div class="mt-8 text-9xl text-white text-opacity-60" style="font-weight:600;" >
+      前端代码质量
+    </div>
+  </div>
 
-<div class="pt-12">
-  <span class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
-    代码规范和基于 VSCODE 前端工作流
-  </span>
-</div>
 
 ---
 
@@ -20,7 +24,7 @@ highlighter: shiki
 - javascript 脚本语言。变量类型，函数参数校验
 - 代码风格不一致。
 - 组件复用率不高。直接拷贝代码修改。
-- 统一功能，不同项目依赖库不同。
+- 同一功能，不同项目依赖库不同。
 - ......
 
 <style>
@@ -34,6 +38,31 @@ h1 {
   -moz-text-fill-color: transparent;
 }
 </style>
+
+---
+
+```javascript
+schema(newVal, oldVal) {
+  const fields = flattenSchema(this.schema);
+  this.fields = fields
+  const formData = getDefaultFormState(this.schema, this.value, this.schema);
+
+  this.formData = formData;
+}
+```
+
+```javascript
+onFieldChange(data) {
+    this.emitWidgetDataChange(data);
+
+    // 如果存在 equalTo 规则，触发依赖校验
+    if (data.equalTo) {
+        setTimeout(() => {
+            this.$refs.genEditForm.validateField(data.equalTo);
+        });
+    }
+},
+```
 
 ---
 
@@ -62,11 +91,11 @@ h1 {
 # 代码异味
 
 - 1、Vue 组件 Template 中很长的判断
-- 2、变量名定义
-- 3、重复代码
-- 4、过长函数
-- 5、函数参数太多
-- 6、setTimeout 和接口
+- 2、变量名定义 - 含义不明确或者无定义
+- 3、重复代码 - 拷贝工具方法
+- 4、过长函数 - 复杂度
+- 5、函数参数太多 - 俩个以上考虑使用对象
+- 6、setTimeout 和接口，执行错误，定时炸弹
 - ...
 
 <style>
@@ -284,6 +313,16 @@ handelDictionary(data) {
 
 ---
 
+# 看不懂代码
+
+- 1、维护困难
+- 2、逻辑不清晰
+- 3、BUG 难定位
+- 4、修改组件，A 页面好了，引起 B 页面新问题
+- ...
+
+---
+
 # 降低复杂度
 
 - 1、单一职责提炼函数
@@ -445,9 +484,17 @@ h1 {
 
 ---
 
+# 规则
+
+- **"off" 或 0** - 关闭规则
+- **"warn" 或 1** - 开启规则，警告，程序不退出
+- **"error" 或 2** - 开启规则，错误，程序退出
+
+---
+
 # Examples
 
-```bash
+```ts
 yarn add eslint @babel/core @babel/eslint-parser @wpg/eslint-config -D
 ```
 
@@ -506,7 +553,7 @@ h1 {
 
 # Examples
 
-```bash
+```ts
 yarn add prettier @wpg/prettier-config -D
 ```
 
@@ -555,7 +602,7 @@ h1 {
 
 # Examples
 
-```bash
+```ts
 yarn add stylelint @wpg/stylelint-config -D
 ```
 
@@ -572,6 +619,37 @@ module.exports = {
   "editor.codeActionsOnSave": {
     "source.fixAll.stylelint": true
   }
+}
+```
+
+---
+
+# UNI-APP
+
+条件语法
+
+```js
+ // #ifdef H5
+ // #endif
+```
+
+```js
+// .eslintrc.js
+rules: {
+  ...
+  'import/order': 'off',
+  'import/first': 'off',
+  'sort-imports': 'off',
+  ...
+}
+```
+
+```js
+// .stylelintrc.js
+rules: {
+  ...
+  'order/order': 'off',
+  ...
 }
 ```
 

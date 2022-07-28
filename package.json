@@ -8,9 +8,6 @@
   },
   "dependencies": {
     "@slidev/cli": "^0.34.3",
-    "@slidev/theme-default": "*",
-    "@slidev/theme-seriph": "*",
-    "slidev-theme-geist": "^0.8.1",
     "slidev-theme-light-icons": "^1.0.2"
   }
 }
